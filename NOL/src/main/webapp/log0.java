@@ -16,11 +16,7 @@ public class InfoServlet extends HttpServlet {
         String method = request.getMethod();
 
         // Construir el mensaje de registro
-        String logMessage = "Datos del formulario: " + formData + " " +
-                            "Información del cliente: " + clientInfo + " " +
-                            "Fecha actual: " + currentDate + " " +
-                            "URI: " + uri + " " +
-                            "Método: " + method;
+        String logMessage = currentDate + formData + " " + clientInfo + " " + uri + " acceso" + method;
 
         // Registrar el mensaje en el registro del servidor
         getServletContext().log(logMessage);
