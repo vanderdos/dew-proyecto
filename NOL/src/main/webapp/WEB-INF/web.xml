@@ -4,7 +4,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
   <display-name>NOL</display-name>
 <context-param>
     <param-name>rutaArchivo</param-name>
-    <param-value>/ruta/del/archivo.txt</param-value>
+    <param-value>NOL/src/main/webapp/archivo.txt</param-value>
 </context-param>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
