@@ -25,4 +25,23 @@ public class InfoServlet extends HttpServlet {
         response.setContentType("text/plain");
         response.getWriter().println(logMessage);
     }
+
+     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Información relevante
+        String formData = request.getQueryString();
+        String clientInfo = request.getRemoteAddr();
+        LocalDateTime currentDate = LocalDateTime.now();
+        String uri = request.getRequestURI();
+        String method = request.getMethod();
+
+        // Construir el mensaje de registro
+        String logMessage = currentDate + formData + " " + clientInfo + " " + uri + " acceso" + method;
+
+        // Registrar el mensaje en el registro del servidor
+        getServletContext().log(logMessage);
+
+        // Enviar la respuesta al cliente
+        response.setContentType("text/plain");
+        response.getWriter().println(logMessage);
+    }
 }
