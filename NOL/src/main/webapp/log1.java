@@ -1,12 +1,29 @@
-import java.io.IOException;
+
+
+import java.io.*;
 import java.time.LocalDateTime;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class InfoServlet extends HttpServlet {
+/**
+ * Servlet implementation class log1
+ */
+public class log1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public log1() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Información relevante
         String formData = request.getQueryString();
@@ -25,8 +42,11 @@ public class InfoServlet extends HttpServlet {
         response.setContentType("text/plain");
         response.getWriter().println(logMessage);
 
-        String filePath = "resultado.txt"; // Ruta y nombre de archivo preestablecidos
-        writeToFile(logMessage, filePath);
+       
+        FileOutputStream archivo = new FileOutputStream("./tomcat/webapps/resultado.txt",true);
+        PrintStream output = new PrintStream(archivo);
+        System.setOut(output);
+        System.out.println(logMessage);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,18 +67,16 @@ public class InfoServlet extends HttpServlet {
         response.setContentType("text/plain");
         response.getWriter().println(logMessage);
         
-        String filePath = "resultado.txt"; // Ruta y nombre de archivo preestablecidos
-        writeToFile(logMessage, filePath);
+        FileOutputStream archivo = new FileOutputStream("./tomcat/webapps/resultado.txt",true);
+        PrintStream output = new PrintStream(archivo);
+        System.setOut(output);
+        System.out.println(logMessage);
+        
     }
 
 
-    private void writeToFile(String content, String filePath) throws IOException {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-                writer.write(content);
-                writer.newLine();
-            }
-    }
 }
+
 
 
 
