@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://JAVA.sun.com/xml/ns/javaee" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>NOL</display-name>
-<context-param>
-    <param-name>rutaArchivo</param-name>
-    <param-value>NOL/src/main/webapp/archivo.txt</param-value>
-</context-param>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>NOL_DEW</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -14,4 +9,38 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>log0</display-name>
+    <servlet-name>log0</servlet-name>
+    <servlet-class>log0</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>log0</servlet-name>
+    <url-pattern>/log0</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>log1</display-name>
+    <servlet-name>log1</servlet-name>
+    <servlet-class>log1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>log1</servlet-name>
+    <url-pattern>/log1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>log2</display-name>
+    <servlet-name>log2</servlet-name>
+    <servlet-class>log2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>log2</servlet-name>
+    <url-pattern>/log2</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>logPath1</param-name>
+    <param-value>./tomcat/webapps/resultado.log</param-value>
+  </context-param>
 </web-app>
